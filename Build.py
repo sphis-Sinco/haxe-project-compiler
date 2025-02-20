@@ -7,6 +7,9 @@ from tkinter import *
 from tkinter import ttk
 import tkinter
 
+PROJECT_TITLE = "Haxe project compiler"
+PROJECT_VERSION = "1.0.0"
+
 dashD_not_required = ['debug' 'watch']
 target_platforms = ['hl', 'windows']
 
@@ -54,10 +57,10 @@ def runSubP():
         output.insert(END, value)
 
 tkinter_ui = tkinter.Tk()
-tkinter_ui.title('Haxe project compiler (using lime)')
+tkinter_ui.title(f'{PROJECT_TITLE} v{PROJECT_VERSION}')
 tkinter_ui.geometry('640x608')
 
-project_text = Label(tkinter_ui, text='Haxe project compiler (using lime)\nMade by sphis_Sinco')
+project_text = Label(tkinter_ui, text=f'{PROJECT_TITLE} (v{PROJECT_VERSION})\nMade by sphis_Sinco')
 project_text.pack(pady=10)
 
 def select(event):
