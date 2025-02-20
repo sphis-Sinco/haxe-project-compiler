@@ -103,6 +103,9 @@ custom_build_flags.insert(END, 'Seperate your build flags with a .')
 
 output.delete(1.0, END)
 output.insert(END, 'TRACE LOGS WILL GO HERE')
+       
+selected_item = combo_box.get()
+target_platform_text.config(text='Selected target platform: ' + selected_item)
 
 # menu stuff
 menu = Menu(tkinter_ui)
@@ -118,6 +121,9 @@ def clear_ui():
 
        output.delete(1.0, END)
        output.insert(END, 'TRACE LOGS WILL GO HERE')
+       
+       selected_item = combo_box.get()
+       target_platform_text.config(text='Selected target platform: ' + selected_item)
 
 filemenu.add_command(label='Reset', command=clear_ui)
 
