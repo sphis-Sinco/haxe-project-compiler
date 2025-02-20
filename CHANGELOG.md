@@ -3,6 +3,8 @@
 - Added menus
 - Removed Exit button
 - Changed initalization
+- Added Saving Build flags to a text file
+- Added Loading Build flags to a text file
 
 # 1.0 - 2/19/2025
 - Project compiling

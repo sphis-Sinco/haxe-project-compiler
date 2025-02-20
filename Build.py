@@ -127,6 +127,18 @@ def clear_ui():
 
 filemenu.add_command(label='Reset', command=clear_ui)
 
+def save_build_flags():
+       with open('build_flags.txt', 'w') as file:
+                file.write(custom_build_flags.get('1.0', 'end-1c'))
+
+def load_build_flags():
+       with open('build_flags.txt', 'r') as file:
+                custom_build_flags.delete(1.0, END)
+                custom_build_flags.insert(END, file.read())
+
+filemenu.add_command(label='Save build flags as text file', command=save_build_flags)
+filemenu.add_command(label='Load build flags from a  text file', command=load_build_flags)
+
 filemenu.add_command(label='Exit', command=tkinter_ui.quit)
 filemenu.add_separator()
 menu.add_cascade(label='File', menu=filemenu)
