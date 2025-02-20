@@ -131,14 +131,21 @@ def save_build_flags():
        with open('build_flags.txt', 'w') as file:
                 file.write(custom_build_flags.get('1.0', 'end-1c'))
 
+def save_trace_logs():
+       with open('trace_logs.txt', 'w') as file:
+                file.write(output.get('1.0', 'end-1c'))
+
 def load_build_flags():
+       # make this not be a specific file
        with open('build_flags.txt', 'r') as file:
                 custom_build_flags.delete(1.0, END)
                 custom_build_flags.insert(END, file.read())
 
+filemenu.add_separator()
+filemenu.add_command(label='Save trace logs as text file', command=save_trace_logs)
 filemenu.add_command(label='Save build flags as text file', command=save_build_flags)
 filemenu.add_command(label='Load build flags from a  text file', command=load_build_flags)
-
+filemenu.add_separator()
 filemenu.add_command(label='Exit', command=tkinter_ui.quit)
 filemenu.add_separator()
 menu.add_cascade(label='File', menu=filemenu)
