@@ -8,7 +8,7 @@ from tkinter import ttk
 import tkinter
 
 PROJECT_TITLE = "Haxe project compiler"
-PROJECT_VERSION = "1.0.0"
+PROJECT_VERSION = "1.1.0"
 
 dashD_not_required = ['debug' 'watch']
 target_platforms = ['hl', 'windows']
@@ -84,19 +84,47 @@ combo_box.bind('<<ComboboxSelected>>', select)
 # cbf
 custom_build_flags = Text(tkinter_ui, height=10, width=64)
 custom_build_flags.pack()
-custom_build_flags.insert(END, 'Seperate your build flags with a .')
+custom_build_flags.insert(END, '')
 
 # compile button
 run = tkinter.Button(tkinter_ui, text='Compile', width=25, command=runSubP)
 run.pack(pady=10)
 
-# exit button
-exit = tkinter.Button(tkinter_ui, text='Exit', width=25, command=tkinter_ui.destroy)
-exit.pack(pady=10)
-
 # terminal outputs  
 output = Text(tkinter_ui, height=10, width=64)
 output.pack(pady=10)
+output.insert(END, '')
+
+# init stuff
+combo_box.set(target_platforms[0])
+       
+custom_build_flags.delete(1.0, END)
+custom_build_flags.insert(END, 'Seperate your build flags with a .')
+
+output.delete(1.0, END)
 output.insert(END, 'TRACE LOGS WILL GO HERE')
 
+# menu stuff
+menu = Menu(tkinter_ui)
+tkinter_ui.config(menu=menu)
+
+filemenu = Menu(menu)
+
+def clear_ui():
+       combo_box.set(target_platforms[0])
+       
+       custom_build_flags.delete(1.0, END)
+       custom_build_flags.insert(END, 'Seperate your build flags with a .')
+
+       output.delete(1.0, END)
+       output.insert(END, 'TRACE LOGS WILL GO HERE')
+
+filemenu.add_command(label='Clear', command=clear_ui)
+
+filemenu.add_command(label='Exit', command=tkinter_ui.quit)
+filemenu.add_separator()
+menu.add_cascade(label='File', menu=filemenu)
+
 tkinter_ui.mainloop()
+
+clear_ui()
