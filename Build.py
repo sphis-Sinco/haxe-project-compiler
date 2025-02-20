@@ -119,7 +119,7 @@ def clear_ui():
        output.delete(1.0, END)
        output.insert(END, 'TRACE LOGS WILL GO HERE')
 
-filemenu.add_command(label='Clear', command=clear_ui)
+filemenu.add_command(label='Reset', command=clear_ui)
 
 filemenu.add_command(label='Exit', command=tkinter_ui.quit)
 filemenu.add_separator()
