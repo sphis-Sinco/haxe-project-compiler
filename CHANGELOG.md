@@ -1,4 +1,4 @@
-# 1.1 - 2/19/2025
+# 1.1 - 2/21/2025
 - Variables for project title and version
 - Added menus
 - Removed Exit button
