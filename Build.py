@@ -126,6 +126,7 @@ def clear_ui():
        target_platform_text.config(text='Selected target platform: ' + selected_item)
 
 filemenu.add_command(label='Reset', command=clear_ui)
+filemenu.add_separator()
 
 def save_build_flags():
        with open('build_flags.txt', 'w') as file:
@@ -141,10 +142,24 @@ def load_build_flags():
                 custom_build_flags.delete(1.0, END)
                 custom_build_flags.insert(END, file.read())
 
-filemenu.add_separator()
 filemenu.add_command(label='Save trace logs as text file', command=save_trace_logs)
 filemenu.add_command(label='Save build flags as text file', command=save_build_flags)
 filemenu.add_command(label='Load build flags from a  text file', command=load_build_flags)
+
+filemenu.add_separator()
+
+def add_build_flag(flag):
+        custom_build_flags.insert(END, f'.{flag}')
+
+def add_debug_flag():
+        add_build_flag('debug')
+
+def add_watch_flag():
+        add_build_flag('watch')
+
+filemenu.add_command(label='Add debug build flag', command=add_debug_flag)
+filemenu.add_command(label='Add watch build flag', command=add_watch_flag)
+
 filemenu.add_separator()
 filemenu.add_command(label='Exit', command=tkinter_ui.quit)
 filemenu.add_separator()

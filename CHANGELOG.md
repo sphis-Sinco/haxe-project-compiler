@@ -1,5 +1,7 @@
 # 1.1.1 - 2/??/2025
 - Added html5 target platform
+- Added "Add debug build flag" button
+- Added "Add watch build flag" button
 
 # 1.1 - 2/21/2025
 - Variables for project title and version
