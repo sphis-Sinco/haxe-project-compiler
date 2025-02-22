@@ -8,10 +8,10 @@ from tkinter import ttk
 import tkinter
 
 PROJECT_TITLE = "Haxe project compiler"
-PROJECT_VERSION = "1.1.0"
+PROJECT_VERSION = "1.1.1"
 
 dashD_not_required = ['debug' 'watch']
-target_platforms = ['hl', 'windows']
+target_platforms = ['hl', 'windows', 'html5']
 
 def runSubP():
         compile_args = ['lime', 'test', combo_box.get()]

@@ -1,3 +1,6 @@
+# 1.1.1 - 2/??/2025
+- Added html5 target platform
+
 # 1.1 - 2/21/2025
 - Variables for project title and version
 - Added menus
